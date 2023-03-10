@@ -14,7 +14,8 @@ const homeTeam2014Final = fifaData.filter(function(element){
     });
 console.log(JSON.stringify(homeTeam2014Final));
 
-   
+
+
 
 //(b) Away Team name for 2014 world cup final
     console.log('Task 1a', homeTeam2014Final[0]['Away Team Name']);
@@ -132,16 +133,16 @@ Use the higher order function `getAverageGoals` to do the following:
  
 */
 
-function getAverageGoals(getFinalsCB) {
-   const averageGoals = getFinalsCB(fifaData).reduce((accumulator, currentValue) => {
+function getAverageGoals(games) {
+   const averageGoals = games.reduce((accumulator, currentValue) => {
     return accumulator + currentValue['Home Team Goals'] + currentValue['Away Team Goals'];
    }, 0);
 
-   return (averageGoals/(getFinalsCB(fifaData).length)).toFixed(2);
+   return (averageGoals/(games.length)).toFixed(2);
 
    
  }
-console.log('Average Goals:', getAverageGoals(getFinals));
+console.log('Average Goals:', getAverageGoals(getFinals(fifaData)));
 
 
 
